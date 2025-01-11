@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-@author: Marcin Płodzień
+Created on Wed Jan  10 23:07:02 2025
+
+@author: marcin
 """
 import torch
 import torch as pt
@@ -809,7 +811,7 @@ for configuration_index, (configuration_key, configuration) in enumerate(configu
         x_reconstructed = df_reconstruction_on_train['X_reconstructed'][idx] + shift * gap
         ax[0,0].plot(x_true, label='True')
         ax[0,0].plot(x_reconstructed, linestyle='--', label='Reconstructed')
-        title_string = "Train reconstruction: delta in [{:2.2f}, {:2.2f}]".format(delta_train_min, delta_train_max )
+        title_string = "Train reconstruction" 
         ax[0,0].set_title(title_string)
     
     for shift, idx in enumerate(samples_test):
@@ -817,7 +819,7 @@ for configuration_index, (configuration_key, configuration) in enumerate(configu
         x_reconstructed = df_reconstruction_on_test['X_reconstructed'][idx] + shift * gap
         ax[0,1].plot(x_true, label='True')
         ax[0,1].plot(x_reconstructed, linestyle='--', label='Reconstructed')
-        title_string = "Test reconstruction: delta in [{:2.2f}, {:2.2f}] ".format(delta_test_min, delta_test_max)
+        title_string = "Test reconstruction"
         ax[0,1].set_title(title_string)
         
         
@@ -833,7 +835,7 @@ for configuration_index, (configuration_key, configuration) in enumerate(configu
         
         # ax[0,2].plot(x_reconstructed, linestyle='--', label='Reconstructed')
         ax[0,2].plot(x_reconstructed_permuted, linestyle='--', label='Reconstructed')
-        title_string = "Test permuted reconstruction: delta in [{:2.2f}, {:2.2f}] ".format(delta_test_min, delta_test_max)
+        title_string = "Test permuted reconstruction"
         ax[0,2].set_title(title_string)    
  
     ax[1,0].plot(results_train['y_true'], results_train['mean'], 'o', label = 'train')
@@ -883,11 +885,7 @@ for configuration_index, (configuration_key, configuration) in enumerate(configu
         color='orange'
     )
     
-    ax[1,0].axvline(delta_train_min, ls = '--')
-    ax[1,0].axvline(delta_train_max, ls = '--')
-    ax[1,1].axvline(delta_train_min, ls = '--')
-    ax[1,1].axvline(delta_train_max, ls = '--')
-    
+   
     ax[1,0].set_xlabel("delta true")
     ax[1,1].set_xlabel("delta true")
     ax[1,0].set_ylabel("delta pred")
