@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jan  11 23:07:02 2025
-
-@author: marcin
+@author: Marcin Płodzień
 """
 import torch
 import torch as pt
